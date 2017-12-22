@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="x-ua-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <title>Ministry-Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../css/style.css" rel="stylesheet">
+    
+</head>
+ <!--Nav-->
+        <nav class="navbar fixed-top navbar-expand-lg nav-flex-icons navbar-dark" style="height: 12vh; float:left; background-color: #566573">
+            <a class=" navbar-brand " href="# "><img src="../img/UMClogo.png" height="50" width="50">
+                </a><p class="mt-4">WESLEY UNITED<br>
+                METHODIST CHURCH</p>
+            <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link ml-3" href="../index.html ">Home </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="../html/events.html ">Events</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="../html/ministry.html ">Ministries<span class="sr-only ">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="# ">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+<body>
+<br><br><br><br>
+<div class="container">
+
+ <div class="divider-new  ">
+            <h2 class="h2-responsive wow fadeIn" style="animation-name: none; visibility: visible;font-family: Impact">ADD NEW MINISTRY</h2>
+        </div>
+<form>
+    
+    <div class="row">
+    <div class="col-md-6">
+    
+<div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input type="text" id="name" placeholder="Ministry Name" class="form-control">
+     
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input type="text" id="description" placeholder="Ministry Description" class="form-control">
+     
+    </div>
+
+ 
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input  type="text" id="leader" placeholder="Ministry Leader" class="form-control">
+      
+    </div>
+     <div class="text-center">
+        <button onclick="saveme()" class="btn btn-default">Save</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <br>
+      <i class="fa fa-image prefix grey-text"></i> Ministry Logo: <input type='file' accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+    <br>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-8">
+       <br>
+          
+    <img id="ministrylogo" src="#"  /><br>
+  </div>
+  <div class="col-md-1">
+  </div>
+  </div>
+    <textarea id="base"  style="opacity: 0"></textarea><br> 
+  </div>
+</div>
+  
+   
+</form>
+
+  <!--   
+    Ministry Name: <input id="name" type="text"><br>
+    Ministry Logo: <input type='file' accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+    <img id="ministrylogo" src="#" alt="your image" /><br>
+    <textarea id="base"></textarea><br>	
+    Ministry Description: <input id="description" type="text"><br>
+    Ministry Leader: <input id="leader" type="text"><br><br>
+    <div class="text-center">
+    <button class="btn btn-default" onclick="saveme()">Save</button></div> -->
+
+</div>
+<div class="container">
+
+ <div class="divider-new pt-5 ">
+            <h2 class="h2-responsive wow fadeIn" style="animation-name: none; visibility: visible; font-family: Impact">MINISTRIES</h2>
+        </div>
+    <!--show-->
+
+<br><br><br><br>
+<div class="row" id="ministry" style="text-align: center;">
+   
+   
+
+
+
+    </div>
+
+</div>
+</div>
+    <!--end-->
+
+    <br><br><br><br><br><br><br>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">&copy; Cool-on: 20177</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+</body>
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    	$('#falseinput').attr('src', e.target.result);
+					$('#base').val(e.target.result);
+      $('#ministrylogo')
+        .attr('src', e.target.result)
+        .width(300)
+        .height(300);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+function saveme(){
+	var   a= document.getElementById('name').value;
+	var   b= document.getElementById('base').value;
+	var   c= document.getElementById('description').value;
+	var   d= document.getElementById('leader').value;
+	
+  var datas ={"name" : a  , "img": b , "des" : c , "lead" : d} ;
+
+	 $.ajax({
+		url: "../../php/ministry.php",
+
+
+     headers: { 
+       
+        "Content-Type": "  application/x-www-form-urlencoded; charset=UTF-8"
+
+    },
+      type: "POST",
+		dataType: "json",
+		data: JSON.stringify(datas),
+    success: function(data){
+      console.log(data);
+		}
+
+	})
+    
+}
+
+
+
+    var name = "";
+    var image ="";
+    var des ="";
+    var leader ="";
+    $.ajax({
+        url:"../../php/index.php/getallministries",
+        type:"POST",
+        dataType: "json",
+        data:{},
+        success: function(data){
+            console.log(data);
+            for(var i=0 ; i<data.length ; i++ ){
+                name = data[i].ministryname;
+                image = data[i].ministryimage;
+                des = data[i].ministrydescription;
+                leader = data[i].ministryleader;
+                // document.getElementById('ministry').innerHTML +='<div><p>name :'+name+'</p><img src="'+image+' "style="width:200px;height:200px;"><p>description: '+des+'</p><p>leader: '+leader+'</p</div><br><br>';
+
+
+                 document.getElementById('ministry').innerHTML +='<div class="col-md-4"><div class="overlay hm-blue-light card hoverable" style="padding: 5px;"><!--Card image--><div class="overlay hm-white-slight"><img src="'+image+'" height="300" width="340" class="img-fluid-center" style="margin-top: 3px; height: 300px" alt="photo"><a href="#"><!-- <div class="mask"></div> --></a></div> <br><!--Card content--><div class="card-body"><!--Title--><h4 class="card-title">'+name+'</h4><!--Text--><h6 class="card-title"> "'+des+'"</h6><p class="card-text">Ministry Leader: '+leader+'</p></div></div><br></div>';
+
+            }
+        }
+    })
+</script>
+</html>

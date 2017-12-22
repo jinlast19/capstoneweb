@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="x-ua-Compatible" content="ie=edge">
+   
+
+    <title>Events-Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- <script type="text/javascript " src="../js/bootstrap.min.js "></script> -->
+    <!-- <script type="text/javascript " src="../js/popper.min.js "></script> -->
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<br><br><br><br>
+         <!--Nav-->
+        <nav class="navbar fixed-top navbar-expand-lg nav-flex-icons navbar-dark" style="height: 12vh; float:left; background-color: #566573">
+            <a class=" navbar-brand " href="# "><img src="../img/UMClogo.png" height="50" width="50">
+                </a><p class="mt-4">WESLEY UNITED<br>
+                METHODIST CHURCH</p>
+            <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link ml-3" href="../index.html ">Home </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="../html/events.html ">Events<span class="sr-only ">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="../html/ministry.html ">Ministries</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="# ">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+<body>
+   <div class="container">
+   <!--
+    Title: <input id="title" type="text"><br>
+    Image: <input type='file' accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+    <img id="ministrylogo" src="#" alt="your image" /><br>
+    <textarea id="base"></textarea><br> 
+    Description: <input id="description" type="text"><br>
+    Date: <input id="date" type="date"><br>
+    Time: <input id="time" type="time"><br>
+    Venue: <input id="venue" type="text"><br>
+    <button type="button" onclick="saveme()">SAVE</button>
+    -->
+ <div class="divider-new  ">
+            <h2 class="h2-responsive wow fadeIn" style="animation-name: none; visibility: visible;font-family: Impact">ADD NEW EVENTS</h2>
+        </div>
+<form>
+    
+    <div class="row">
+    <div class="col-md-6">
+    
+<div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input type="text" id="title" placeholder="Title" class="form-control">
+     
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input type="text" id="description" placeholder="Description" class="form-control">
+     
+    </div>
+
+    <div class="md-form">
+        <i class="fa fa-calendar prefix grey-text"></i>
+        <input type="date" id="date" class="form-control">
+       
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input type="time" id="time"  class="form-control">
+       
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <input  type="text" id="venue" placeholder="Venue" class="form-control">
+      
+    </div>
+     <div class="text-center">
+        <button onclick="saveme()" class="btn btn-default">Save</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <br>
+      <i class="fa fa-image prefix grey-text"></i> Image: <input type='file' accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+    <br>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-8">
+       <br>
+          
+    <img id="ministrylogo" src="#"  /><br>
+  </div>
+  <div class="col-md-1">
+  </div>
+  </div>
+    <textarea id="base"  style="opacity: 0"></textarea><br> 
+  </div>
+</div>
+  
+   
+</form>
+
+<!--Main Layout-->
+    <div class="divider-new pt-5 ">
+            <h2 class="h2-responsive wow fadeIn" style="animation-name: none; visibility: visible;font-family: Impact">EVENTS</h2>
+        </div>
+    <div class="container">
+        
+        <div class="card-deck"  > </div>
+        </div>
+ 
+
+<br><br> <br>           
+<!-- Grid row -->
+<div class="row ml-5 " >
+    <!-- Grid column -->
+        
+        <!--Card-->
+
+            <!--Card content-->
+            <div class="row text-center bg-light" id="events">
+
+       
+      </div>
+      <!-- /.row -->
+            
+<br><br><br><br><br><br><br><br>
+
+</div>
+</div>
+
+
+<!--/.Card-->
+<!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white"> &copy; Cool-on: 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4  style="font-size: 200%;text-align: center;font-family: Impact">Event Registration</h4>
+        </div>
+        <div class="modal-body">
+              <!-- <h1 style="font-size: 200%;text-align: center;font-family: Impact;padding: 1% 1% 1% 1%">You are Invited !</h1> -->
+              <div class="col-md-6"><div class="ull-bg-img flex-cover"><img src="image2" height="300" class="card-img-top "  width="200" alt="" ></div></div><div class="col-md-6"><h3  style="text-align: center;font-family: Impact;padding: 15% 1% 1% 1%">title2</h3><p style="text-align: center"> At venue2 on date2 time2</p><p  style="text-align: center"  >Do you really want to register on these event?</p><p style="text-align:center"><button type="button" class="btn btn-info" onclick="reg()"> register</button><button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button></p>
+<div class="row" id="regform">
+   
+    </div>
+</div>
+        </div>
+      
+      </div>
+
+
+ <script type="text/javascript " src="../js/jquery-3.2.1.min.js "></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript " src="../js/popper.min.js "></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript " src="../js/bootstrap.min.js "></script>
+</body>
+
+
+
+<script>
+
+      function register(){
+          $("#myModal").modal();    
+
+    }
+
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $('#falseinput').attr('src', e.target.result);
+
+                    $('#base').val(e.target.result);
+      $('#ministrylogo')
+        .attr('src', e.target.result)
+        .width(300)
+        .height(300);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+function saveme(){
+    var   a= document.getElementById('title').value;
+    var   b= document.getElementById('base').value;
+    var   c= document.getElementById('description').value;
+  var   d= document.getElementById('date').value;
+  var   e= document.getElementById('time').value;
+  var   f= document.getElementById('venue').value;
+    var g = new Date();
+
+  var datas ={"title" : a  , "img": b , "des" : c , "date" : d , "time" : e , "venue": f } ;
+  console.log(datas);
+
+     $.ajax({
+        url: "../../php/events.php",
+
+
+     headers: { 
+       
+        "Content-Type": "  application/x-www-form-urlencoded; charset=UTF-8"
+
+    },
+      type: "POST",
+        dataType: "json",
+        data: JSON.stringify(datas),
+    success: function(data){
+      console.log(data);
+        }
+
+    })
+    
+}
+</script>
+<script>
+    var title = "";
+    var image ="";
+    var des ="";
+    var date ="";
+    var time ="";
+    var venue ="";
+    var num = "";
+    $.ajax({
+        url:"../../php/alleventsadmin.php",
+        type:"POST",
+        dataType: "json",
+        data:{},
+        success: function(data){
+            console.log(data);
+            for(var i=0 ; i<data.length ; i++ ){
+                title = data[i]['data'].title;
+                image = data[i]['data'].image;
+                des = data[i]['data'].description;
+                time = data[i]['data'].timeofevent;
+                date = data[i]['data'].dateofevents;
+                venue = data[i]['data'].venue;
+                num = data[i]['num'];
+
+
+                // document.getElementById('events').innerHTML +='<div class="col-lg-3 col-md-6 mb-4"><br><br><div class="card"><img class="card-img-top" src="'+image+'" alt="No Image"><div class="card-body"><h4 class="card-title">'+title+'</h4><p class="card-text">At '+venue+' on '+date+' '+time+'</p> <div class="card-footer"><a href="#" class="btn btn-primary">Find Out More!</a></div></div></div>';
+        document.getElementById('events').innerHTML += '<div class="col-lg-4 col-md-6 mb-5  "><div class="card"><img class="card-img-top" src="'+image+'" height="250" width="200" alt="No Image"><div class="card-body"><h4 class="card-title">'+title+'</h4><p class="card-text">At '+venue+' on '+date+' '+time+'.</p><p>REGISTERED : '+num+'</p></div><div class="card-footer"><p class="btn btn-primary" onclick="register()">View</p></div></div></div>'
+            }
+
+            
+            
+          document.getElementById('regform').innerHTML ='';
+
+
+        }
+    })
+</script>
+</html>

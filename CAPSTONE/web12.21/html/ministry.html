@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    	<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <title>Ministry</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+    <!--Nav-->
+    <nav class="navbar fixed-top navbar-expand-lg nav-flex-icons navbar-dark bg-mycolor" >
+            <a class=" navbar-brand " href="# "><img src="../img/UMClogo.png" height="70" width="50">
+                </a><p class="mt-4">WESLEY UNITED<br>
+                METHODIST CHURCH</p>
+        <!-- ung color ng nav nasa mdb.css find mo ung bg-mycolor-->
+            <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse ml-logo" id="navbarSupportedContent" >
+                
+            </div>
+
+            <!--navigation links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" href="../index.html"> Home </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link " href="../html/events.html "> Events </a>
+                    </li>
+                    <li class="nav-item active mr-5">
+                        <a class="nav-link " href="../html/ministry.html "> Ministry <span class="sr-only ">(current)</span> </a> 
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link " href="../html/about.html"> About </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link " href="../html/login.html "> Log-in </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+
+<body>
+<br>
+<div class="container">
+
+ <div class="divider-new pt-5 ">
+            <h2 class="h2-responsive wow fadeIn" style="animation-name: none; visibility: visible; font-family: Impact">MINISTRIES</h2>
+        </div>
+    <!--show-->
+
+<br>
+<div class="row" id="ministry" style="text-align: center;">
+   
+   
+
+
+
+    </div>
+
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+<!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">&copy; Cool-on: 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+</body>
+</html>
+
+
+<script>
+	var name = "";
+	var image ="";
+	var des ="";
+	var leader ="";
+	$.ajax({
+		url:"../../php/index.php/getallministries",
+		type:"POST",
+		dataType: "json",
+		data:{},
+		success: function(data){
+			console.log(data);
+			for(var i=0 ; i<data.length ; i++ ){
+				name = data[i].ministryname;
+				image = data[i].ministryimage;
+				des = data[i].ministrydescription;
+				leader = data[i].ministryleader;
+				 document.getElementById('ministry').innerHTML +='<div class="col-md-4"><div class="overlay hm-blue-light card hoverable" style="padding: 5px;"><!--Card image--><div class="overlay hm-white-slight"><img src="'+image+'" height="300" width="340" class="img-fluid-center" style="margin-top: 3px; height: 300px" alt="photo"><a href="#"><!-- <div class="mask"></div> --></a></div> <br><!--Card content--><div class="card-body"><!--Title--><h4 class="card-title">'+name+'</h4><!--Text--><h6 class="card-title"> "'+des+'"</h6><p class="card-text">Ministry Leader: '+leader+'</p></div></div><br></div>';
+
+		}}
+	})
+</script>
+
+

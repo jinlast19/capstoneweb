@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <title>Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<br><br><br><br>
+<br><br>
+<div class="container" >
+<div class="row">
+<div class="col-md-6">
+<!--Form with header-->
+<div class="card">
+    <div class="card-block">
+
+        <!--Header-->
+        <div class="form-header bg-light darken-4 ml-1" >
+            <h4><i style="text-align: center;"></i> Login:</h4>
+        </div>
+
+        <!--Body-->
+        <div class="md-form ml-2 mr-2">
+            <i class="fa fa-envelope prefix"></i>
+            <input type="text" id="user" class="form-control validate" placeholder="Username"> 
+        </div>
+
+        <div class="md-form ml-2 mr-2">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" id="pass" class="form-control validate" placeholder="Your password">
+           
+        </div>
+
+        <div class="text-center">
+        <div >
+            <a class="btn btn-grey" onclick="loginme()" href='../'>Login</a>
+            <a class="btn btn-grey" href="../index.html">Cancel</a>
+        </div>
+     
+
+        <div class="modal-footer  bg-light">
+        <div class="options">
+            <p>Not a member? <a href="signup.html">Sign Up</a></p>
+   <!--          <p>Forgot <a href="#">Password?</a></p> -->
+        </div>
+    </div>
+    </div>
+
+    </div>
+</div>
+</div>
+
+<div class="col-md-6">
+     <div class="text-center"><br>
+        <img src="../img/logo.png" style="height: 300px">
+
+</div>
+    <!--Footer-->
+    
+
+
+</div>
+</div>
+<!--/Form with header-->
+
+<!--Main Layout-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript " src="js/jquery-3.2.1.min.js "></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript " src="js/popper.min.js "></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript " src="js/bootstrap.min.js "></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript " src="js/mdb.min.js "></script>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function loginme(){
+        var a= document.getElementById('user').value;
+        var b= document.getElementById('pass').value;
+
+$.ajax({
+        url:'../../php/login.php/login/'+a+'/'+b,
+        type:"POST",
+        dataType: "json",
+        data:{},
+        success: function(data){
+            console.log(data['status'].result);
+            if(data['status'].result == "Log in Error"){
+                alert(data['status'].result);
+
+            }else{
+
+            }
+            for(var i=0 ; i<data.length ; i++ ){
+
+         
+    }}
+    })
+
+
+}
+</script>

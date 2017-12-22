@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Events</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+    <!--Nav-->
+ <header>
+
+         <nav class="navbar fixed-top navbar-expand-lg nav-flex-icons navbar-dark bg-mycolor" >
+            <a class=" navbar-brand " href="# "><img src="../img/UMClogo.png" height="70" width="50">
+                </a><p class="mt-4">WESLEY UNITED<br>
+                METHODIST CHURCH</p>
+        <!-- ung color ng nav nasa mdb.css find mo ung bg-mycolor-->
+            <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse ml-logo" id="navbarSupportedContent" >
+                
+            </div>
+        
+            <!--navigation links -->
+             <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto " >
+                    <li class="nav-item mr-5">
+                        <a class="nav-link " href="../index.html"> Home </a>
+                    </li>
+                    <li class="nav-item active mr-5">
+                        <a class="nav-link " href="../html/events.html "> Events <span class="sr-only ">(current)</span> </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link " href="../html/ministry.html "> Ministry </a> 
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link " href="../html/about.html"> About </a>
+                    </li>
+                    <li class="nav-item mr-5" >
+                        <a class="nav-link " href="../html/login.html "> Log-in </a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+
+
+
+    </div>
+
+
+    </header>
+<br><br><br>
+
+<body>
+<div class="bg-light">
+<div class="ull-bg-img flex-cover">
+        <img src="../img/1234.jpg" class="card-img-top " height="500" width="1050px" alt="">
+    </div>
+<br><br>
+<!--Main Layout-->
+    <div class="divider-new pt-5 ">
+            <h2 class="h2-responsive wow fadeIn" style="animation-name: none; visibility: visible;">EVENTS</h2>
+        </div>
+     <div class="container">
+        
+        <div class="card-deck"  > </div>
+        
+ 
+
+<br><br> <br>           
+<!-- Grid row -->
+<div class="row ml-5 " >
+    <!-- Grid column -->
+        
+        <!--Card-->
+
+            <!--Card content-->
+            <div class="row text-center bg-light" id="events">
+
+       
+      </div>
+  </div>
+      <!-- /.row -->
+            
+<br><br><br><br><br><br><br><br>
+
+</div>
+</div>
+<!--/.Card-->
+<!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">&copy; Cool-on: 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    </main>
+    <!--Main Layout-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript " src="../js/jquery-3.2.1.min.js "></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript " src="../js/popper.min.js "></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript " src="../js/bootstrap.min.js "></script>
+    <!-- MDB core JavaScript -->
+   <!-- <script type="text/javascript " src="../js/mdb.min.js "></script>-->
+</body>
+
+</html>
+
+
+<script>
+    var title = "";
+    var image ="";
+    var des ="";
+    var date ="";
+    var time ="";
+    var venue ="";
+    $.ajax({
+        url:"../../php/index.php/getallevents",
+        type:"POST",
+        dataType: "json",
+        data:{},
+        success: function(data){
+            console.log(data);
+            for(var i=0 ; i<data.length ; i++ ){
+                tite = data[i].title;
+                image = data[i].image;
+                des = data[i].description;
+                time = data[i].timeofevent;
+                date = data[i].dateofevents;
+                venue = data[i].venue;
+
+document.getElementById('events').innerHTML += '<div class="col-lg-4 col-md-6 mb-5  "><div class="card"><img class="card-img-top" src="'+image+'" height="250" width="200" alt="No Image"><div class="card-body"><h4 class="card-title">'+title+'</h4><p class="card-text">At '+venue+' on '+date+' '+time+'.</p></div><div class="card-footer"><a href="#" class="btn btn-primary">Find Out More!</a></div></div></div>'
+            }
+
+
+            
+            
+            
+
+    
+        }
+    })
+</script>
+
